@@ -71,4 +71,3 @@ Gracias a esta fase, es posible:
 - Mejorar la experiencia de los clientes más valiosos.
 
 La metodología aplicada puede repetirse periódicamente para mantener los segmentos actualizados y adaptarse a cambios en los patrones de comportamiento.
-
