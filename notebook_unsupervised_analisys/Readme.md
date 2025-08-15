@@ -1,109 +1,74 @@
-# Segmentación de usuarios — *APIBus (Aprendizaje No Supervisado)*
+# Análisis No Supervisado (Machine Learning) — Segmentación de Usuarios APIBus
 
-> Notebook: `segmentacion_usuarios_apibus-No-Supervisado.ipynb`  
-> Objetivo: Realizar un análisis de **segmentación de clientes** de APIBus mediante técnicas de **aprendizaje no supervisado** (*clustering*).  
-> Se busca identificar grupos de usuarios con patrones de comportamiento similares para optimizar estrategias comerciales, de marketing y fidelización.
-
-## 🧭 Tabla de contenido
-- [Contexto](#contexto)
-- [Arquitectura general](#arquitectura-general)
-- [Datos de entrada](#datos-de-entrada)
-- [Preprocesamiento y normalización](#preprocesamiento-y-normalización)
-- [Modelado (Clustering)](#modelado-clustering)
-- [Métricas y validación](#métricas-y-validación)
-- [Visualización](#visualización)
-- [Cómo ejecutar](#cómo-ejecutar)
-- [Variables de entorno](#variables-de-entorno)
-- [Salida y artefactos](#salida-y-artefactos)
-- [Aplicaciones prácticas](#aplicaciones-prácticas)
-- [Siguientes pasos](#siguientes-pasos)
-- [Licencia](#licencia)
+## 📌 Propuesta de Aplicación
+El objetivo de esta fase es aplicar técnicas de *aprendizaje no supervisado* para segmentar a los usuarios de **APIBus** en grupos con comportamientos de compra similares.  
+Esta segmentación permitirá:
+- Diseñar estrategias de marketing personalizadas.
+- Optimizar promociones y precios.
+- Detectar usuarios con alto riesgo de cancelación.
+- Mejorar la experiencia del cliente mediante ofertas adaptadas.
 
 ---
 
-## Contexto
-Este cuaderno conecta (opcionalmente) a **MySQL** para obtener datos de usuarios y boletos del esquema `apibus`.  
-Posteriormente, genera métricas RFM (*Recency*, *Frequency*, *Monetary*) y variables relacionadas para identificar patrones de comportamiento de compra.  
-Se utilizan algoritmos de *clustering* para descubrir segmentos ocultos y caracterizar perfiles de clientes.
+## ⚙️ Elección del mecanismo a utilizar
+Se ha elegido el algoritmo **K-Means Clustering** por su efectividad y facilidad de interpretación en datos numéricos.  
+Este método agrupa los datos en *k* clústeres, minimizando la distancia de cada punto al centroide del grupo.  
+Es apropiado para este proyecto porque no se dispone de etiquetas previas y el objetivo es descubrir patrones ocultos.
 
-## Arquitectura general
-- **Ingesta de datos**: MySQL (`usuarios`, `boletos`, etc.) o datasets locales simulados.
-- **Feature engineering**: construcción de métricas RFM y tasas de cancelación.
-- **Preprocesamiento**: escalado y transformación de variables numéricas.
-- **Modelado**: uso de `KMeans` y evaluación con *Silhouette Score* para elegir `k` óptimo.
-- **Visualización**: gráficos 2D y 3D para interpretación de clusters.
+**Variables utilizadas:**
+- `recency_days`: días desde la última compra.
+- `boletos_pagados`: número total de boletos pagados.
+- `gasto_pagado`: monto total gastado.
+- `tasa_cancelacion`: proporción de boletos cancelados.
 
-## Datos de entrada
-- **usuarios**: ID, datos demográficos (si disponibles).
-- **boletos**: `fecha_reservacion`, `fecha_viaje`, `estado`, `precio`.
-- **uniones**: relación usuario ↔ boletos para cálculo de métricas.
+---
 
-Métricas calculadas:
-- **`recency_days`**: días desde la última compra.
-- **`boletos_pagados`**: número total de boletos comprados/pagados.
-- **`gasto_pagado`**: monto total gastado.
-- **`tasa_cancelacion`**: boletos cancelados / boletos totales.
+## 📚 Marco Teórico
+El *aprendizaje no supervisado* es un enfoque de *machine learning* donde el modelo aprende patrones únicamente a partir de las características de los datos, sin una variable objetivo conocida.  
 
-## Preprocesamiento y normalización
-- Selección de variables numéricas para clustering: `recency_days`, `boletos_pagados`, `gasto_pagado`, `tasa_cancelacion`.
-- Estandarización con `StandardScaler`.
-- Uso de `ColumnTransformer` para facilitar futuras ampliaciones.
+**K-Means:**
+- Algoritmo iterativo que asigna puntos a clústeres minimizando la varianza interna.
+- Requiere especificar el número de clústeres (*k*).
+- Sensible a la escala de los datos, por lo que se aplicó **normalización** previa usando `StandardScaler`.
+- Se evaluó el número óptimo de clústeres con la métrica **Silhouette Score**.
 
-## Modelado (Clustering)
-1. Se calcula el **Silhouette Score** para `k` en rango [2, 8] para identificar número óptimo de clusters.
-2. Se entrena un **KMeans** con `n_clusters = k_óptimo`.
-3. Se asigna el número de cluster a cada usuario.
+---
 
-## Métricas y validación
-- **Silhouette Score** como métrica principal de calidad de clusters.
-- Inspección visual de los clusters.
-- Comparación de métricas promedio por cluster (ej. gasto promedio, frecuencia de compra).
+## 🖥️ Aplicación del Mecanismo
+1. **Carga de datos** desde MySQL o dataset local simulado.
+2. **Cálculo de métricas RFM** y tasa de cancelación.
+3. **Selección de variables**: `recency_days`, `boletos_pagados`, `gasto_pagado`, `tasa_cancelacion`.
+4. **Normalización** con `StandardScaler`.
+5. **Evaluación de k** usando *Silhouette Score* para k = 2 a 8.
+6. **Entrenamiento** de K-Means con el valor óptimo de k.
+7. **Asignación de clúster** a cada usuario.
 
-## Visualización
-- **Gráfico de Silhouette vs k** para decidir número de clusters.
-- **Gráficos 2D** de pares de variables coloreados por cluster.
-- (Opcional) **Visualización 3D** si se aplica reducción de dimensionalidad (PCA).
+---
 
-## Cómo ejecutar
-1. Clona este repositorio y entra a la carpeta del proyecto.
-2. Crea un entorno virtual y activa.
-3. Instala dependencias:
-   ```bash
-   pip install pandas numpy scikit-learn sqlalchemy pymysql matplotlib seaborn
-   ```
-4. Configura tus variables de entorno (ver abajo).
-5. Abre y ejecuta el notebook `segmentacion_usuarios_apibus-No-Supervisado.ipynb`.
+## 📊 Gráficos Generados
+1. **Silhouette Score vs k** — determina el k óptimo.
+2. **Gráfico de dispersión 2D** (`recency_days` vs `gasto_pagado`) coloreado por clúster.
+3. **Mapa de calor** con el promedio de variables por clúster.
 
-### Requisitos
-- Python 3.9+
-- Jupyter Notebook o VSCode con soporte para `.ipynb`
+---
 
-## Variables de entorno
-| Variable        | Ejemplo         | Descripción                         |
-|-----------------|-----------------|-------------------------------------|
-| `APIBUS_USER`   | `root`          | Usuario de MySQL                    |
-| `APIBUS_PWD`    | `********`      | Contraseña de MySQL                 |
-| `APIBUS_HOST`   | `localhost`     | Host de MySQL                       |
-| `APIBUS_PORT`   | `3309`          | Puerto                              |
-| `APIBUS_DB`     | `apibus`        | Base de datos                       |
+## 📈 Resultados Obtenidos
+- Número óptimo de clústeres: **3**.
+- Segmentos identificados:
+  1. **Clientes frecuentes y alto gasto**.
+  2. **Clientes ocasionales de gasto medio**.
+  3. **Clientes con alta cancelación y baja frecuencia**.
 
-> Si no defines estas variables, se utilizarán datos sintéticos.
+Estos resultados permiten crear campañas y estrategias diferenciadas para cada grupo, optimizando el uso de recursos y maximizando el retorno de inversión.
 
-## Salida y artefactos
-- Gráficos de Silhouette y clusters.
-- Archivo CSV/Excel con usuarios y su cluster asignado (si se activa en el notebook).
-- Insights sobre comportamiento por cluster.
+---
 
-## Aplicaciones prácticas
-- **Marketing segmentado**: campañas específicas para cada tipo de cliente.
-- **Fidelización**: beneficios o promociones adaptadas al segmento.
-- **Gestión de cancelaciones**: identificar usuarios con alta tasa de cancelación.
-- **Optimización de precios**: ajustar precios según sensibilidad del segmento.
+## ✅ Conclusión de la Fase del Proyecto
+La segmentación obtenida proporciona información valiosa sobre el comportamiento de los usuarios de APIBus.  
+Gracias a esta fase, es posible:
+- Dirigir promociones de forma más eficiente.
+- Reducir cancelaciones.
+- Mejorar la experiencia de los clientes más valiosos.
 
-## Siguientes pasos
-- Probar otros algoritmos de clustering (DBSCAN, Agglomerative).
-- Incorporar variables demográficas.
-- Integrar resultados en el sistema APIBus/ByteBuss para personalización en tiempo real.
+La metodología aplicada puede repetirse periódicamente para mantener los segmentos actualizados y adaptarse a cambios en los patrones de comportamiento.
 
-## Licencia
-Proyecto bajo licencia **MIT** (o la que definas).
