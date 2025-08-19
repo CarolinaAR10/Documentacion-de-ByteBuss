@@ -62,22 +62,22 @@ Desarrollar e implementar un sistema integral que optimice la gestión del trans
 ```mermaid
 graph TD
     A[Product Owner] --> B[Scrum Master]
-    B --> C[Equipo Backend]
-    B --> D[Equipo Frontend]
-    B --> E[Equipo de Datos]
-    B --> F[QA / Testing]
+    B --> C[Frontend Developer (Raúl)]
+    B --> D[Backend Developer (Zacek)]
+    B --> E[Administrador de Base de Datos (Edgar)]
+    B --> F[Documentadora (Caro)]
 ```
 
 ---
 
 ## Tabla de Colaboradores
 
-| Foto | Nombre Completo | Rol | GitHub |
-|------|-----------------|-----|--------|
-| ![](link_foto1) | Caro | Frontend Developer | [GitHub](https://github.com/CarolinaAR10) |
-| ![](link_foto2) | Raúl | Backend Developer | [GitHub](https://github.com/RaulReyesB) |
-| ![](link_foto3) | Zacek | Data Analyst | [GitHub](https://github.com/Zac-ek) |
-| ![](link_foto4) | Edgar | QA Tester | [GitHub](https://github.com/Ederdal) |
+| Nombre Completo | Rol                    | GitHub                                |
+|------|-----------------|------------------------|---------------------------------------|
+| **Caro**  | Documentadora          | [GitHub](https://github.com/CarolinaAR10) |
+| **Raúl**  | Frontend Developer     | [GitHub](https://github.com/RaulReyesB) |
+| **Zacek** | Backend Developer      | [GitHub](https://github.com/Zac-ek)    |
+| **Edgar** | Administrador de Base de Datos | [GitHub](https://github.com/Ederdal) |
 
 ---
 

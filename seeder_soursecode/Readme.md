@@ -28,3 +28,6 @@ Imágenes de las pruebas y ejecución de los endpoints que generan los datos.
 ##  Respaldo de la BD Post Llenado 
 Archivo con la base de datos ya poblada con datos simulados.  
 Este respaldo será utilizado para alimentar los algoritmos de análisis.
+
+##  Enlace para Poder visualizar la bd del seeder con mas de 3.5 millones de datos
+https://drive.google.com/drive/folders/1FFKUxSZAg-hStt1Sl1qacBPEfueHMmnH?usp=sharing
