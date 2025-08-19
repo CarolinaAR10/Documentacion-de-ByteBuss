@@ -59,14 +59,13 @@ Desarrollar e implementar un sistema integral que optimice la gestión del trans
 ---
 
 ## Organigrama de Trabajo
-```mermaid
-graph TD
-    A[Product Owner] --> B[Scrum Master]
-    B --> C[Frontend Developer (Raúl)]
-    B --> D[Backend Developer (Zacek)]
-    B --> E[Administrador de Base de Datos (Edgar)]
-    B --> F[Documentadora (Caro)]
-```
+
+
+**Organigrama**
+    ├── Frontend Developer (Raúl)
+    ├── Backend Developer (Zacek)
+    ├── Administrador de Base de Datos (Edgar)
+    └── Documentadora (Caro)
 
 ---
 
