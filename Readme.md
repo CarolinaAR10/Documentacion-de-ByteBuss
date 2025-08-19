@@ -61,10 +61,10 @@ Desarrollar e implementar un sistema integral que optimice la gestión del trans
 ## Organigrama de Trabajo
 
 
-**Organigrama**
-    ├── Frontend Developer (Raúl)
-    ├── Backend Developer (Zacek)
-    ├── Administrador de Base de Datos (Edgar)
+**Organigrama**<br>
+    ├── Frontend Developer (Raúl) <br>
+    ├── Backend Developer (Zacek)<br>
+    ├── Administrador de Base de Datos (Edgar)<br>
     └── Documentadora (Caro)
 
 ---
