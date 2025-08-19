@@ -72,11 +72,12 @@ Desarrollar e implementar un sistema integral que optimice la gestión del trans
 ## Tabla de Colaboradores
 
 | Nombre Completo | Rol                    | GitHub                                |
-|------|-----------------|------------------------|---------------------------------------|
-| **Caro**  | Documentadora          | [GitHub](https://github.com/CarolinaAR10) |
-| **Raúl**  | Frontend Developer     | [GitHub](https://github.com/RaulReyesB) |
-| **Zacek** | Backend Developer      | [GitHub](https://github.com/Zac-ek)    |
-| **Edgar** | Administrador de Base de Datos | [GitHub](https://github.com/Ederdal) |
+|-----------------|------------------------|---------------------------------------|
+| **Caro**        | Documentadora          | [GitHub](https://github.com/CarolinaAR10) |
+| **Raúl**        | Frontend Developer     | [GitHub](https://github.com/RaulReyesB) |
+| **Zacek**       | Backend Developer      | [GitHub](https://github.com/Zac-ek)    |
+| **Edgar**       | Administrador de Base de Datos | [GitHub](https://github.com/Ederdal) |
+
 
 ---
 
