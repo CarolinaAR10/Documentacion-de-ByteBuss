@@ -68,6 +68,7 @@ Desarrollar e implementar un sistema integral que optimice la gestión del trans
     └── Documentadora (Caro)
 
 ---
+![organigrama](imagenes/image.png)
 
 ## Tabla de Colaboradores
 
@@ -97,3 +98,19 @@ Desarrollar e implementar un sistema integral que optimice la gestión del trans
 - **Documentación**: Swagger, Markdown
 
 ---
+
+## Diseños de Figma
+- ## **Usuario-Movil**:
+![MovilUsuario](imagenes/Usuarios.png)
+
+- ## **Admin-Movil**:
+![MovilAdmin](imagenes/Admin.png)
+
+- ## **Chofer-Movil**:
+![MovilChofer](imagenes/Choferes.png)
+
+- ## **Admin-Web1**:
+![adminweb1](imagenes/web1.png)
+
+- ## **Admin-Web2**:
+![adminweb1](imagenes/web2.png)
