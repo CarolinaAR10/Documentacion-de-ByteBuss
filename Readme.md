@@ -68,7 +68,7 @@ Desarrollar e implementar un sistema integral que optimice la gestión del trans
     └── Documentadora (Caro)
 
 ---
-![organigrama](imagenes/image.png)
+![organigrama](img/image.png)
 
 ## Tabla de Colaboradores
 
