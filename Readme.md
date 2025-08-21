@@ -101,16 +101,16 @@ Desarrollar e implementar un sistema integral que optimice la gestión del trans
 
 ## Diseños de Figma
 - ## **Usuario-Movil**:
-![MovilUsuario](imagenes/Usuarios.png)
+![MovilUsuario](img/Usuarios.png)
 
 - ## **Admin-Movil**:
-![MovilAdmin](imagenes/Admin.png)
+![MovilAdmin](img/Admin.png)
 
 - ## **Chofer-Movil**:
-![MovilChofer](imagenes/Choferes.png)
+![MovilChofer](img/Choferes.png)
 
 - ## **Admin-Web1**:
-![adminweb1](imagenes/web1.png)
+![adminweb1](img/web1.png)
 
 - ## **Admin-Web2**:
-![adminweb1](imagenes/web2.png)
+![adminweb1](img/web2.png)
